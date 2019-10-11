@@ -1,17 +1,27 @@
 <template>
   <div id="app">
+    <Navi></Navi>
+    <hr style="clear: both">
+    <BlogList></BlogList>
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import Navi from "./components/Navi";
+import Footer from "./components/Footer";
+import BlogList from "./components/BlogList";
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Footer,
+    // HelloWorld,
+    Navi,
+    BlogList
   }
 }
 </script>
