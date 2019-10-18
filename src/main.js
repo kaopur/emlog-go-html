@@ -11,6 +11,7 @@ import Blog from "./components/Blog";
 import Index from './components/Index'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import BlogList from "./components/BlogList";
 
 Vue.use(VueRouter)
 Vue.use(ElementUI);
@@ -25,9 +26,13 @@ Vue.prototype.common = common
 
 let router = new VueRouter({
   routes: [
-      {
-          path: "/blog",
+      {//查看一篇文章的内容
+          path: "/blog/*",
           component: Blog
+      },
+      {//点击导航,查看对应文章列表
+          path: "/navi/*",
+          component: BlogList
       }
       ]
 })

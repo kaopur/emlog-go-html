@@ -10,18 +10,18 @@
                 active-text-color="#ffd04b"
                 router="router"
         >
-            <template v-for="item in navi" :index="item.naviname">
+            <template v-for="item in navi" :index="'/navi/' +item.naviname">
                 <template v-if="item.child_navi">
-                    <el-submenu :index="item.naviname" :key="item.naviname">
+                    <el-submenu :index="(item.type===5)?'/blog/'+item.id:'/navi/' +item.naviname" :key="item.naviname">
                         <template slot="title">{{ item.naviname }}</template>
-                        <el-menu-item v-for="subItem in item.child_navi" :key="subItem.naviname" :index="subItem.naviname">
+                        <el-menu-item v-for="subItem in item.child_navi" :key="subItem.naviname" :index="(subItem.type===5)?'/blog/'+subItem.id:'/navi/' +subItem.naviname">
                             {{ subItem.naviname }}
                         </el-menu-item>
                     </el-submenu>
                 </template>
 
                 <template v-else>
-                    <el-menu-item :index="item.naviname" :key="item.naviname">
+                    <el-menu-item :index="(item.type===5)?'/blog/'+item.id:'/navi/' +item.naviname" :key="item.naviname">
                         {{ item.naviname }}
                     </el-menu-item>
                 </template>
@@ -41,7 +41,7 @@
             return {
                 navi: [],
                 activeIndex: 'HTML',//当前选中的导航
-                router: true
+                router: true,
             }
         },
         methods: {
