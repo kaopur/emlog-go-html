@@ -3,9 +3,11 @@
     <Navi></Navi>
     <hr style="clear: both">
     <BlogList></BlogList>
-    <img alt="Vue logo" src="./assets/logo.png">
+<!--    <img alt="Vue logo" src="./assets/logo.png">-->
 <!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
     <Footer></Footer>
+    <router-view></router-view>
+
   </div>
 </template>
 
