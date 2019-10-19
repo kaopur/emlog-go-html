@@ -26,14 +26,12 @@ Vue.config.productionTip = false
 
 let router = new VueRouter({
   routes: [
-      {//查看一篇文章的内容
-          path: "/blog/*",
-          component: Blog
-      },
-      {//点击导航,查看对应文章列表
-          path: "/navi/*",
-          component: BlogList
-      }
+      //首页
+      {path: "/", component: BlogList},
+      //查看一篇文章的内容
+      {path: "/blog/*",component: Blog},
+      //点击导航,查看对应文章列表
+      {path: "/navi/*",component: BlogList}
       ]
 })
 

@@ -1,8 +1,22 @@
 <template>
-    <div class="blog-list">
-        <div v-for="(item, index) in blogList" :key="index">
-            <router-link to="blog">{{item.title}}</router-link>
-<!--            <a href="http://www.baidu.com">{{item.title}}</a>-->
+    <div>
+        <el-table
+                :data="blogList"
+                stripe
+                style="width: 100%">
+            <el-table-column
+                    prop="title">
+            </el-table-column>
+            <el-table-column
+                    prop="date_fmt">
+            </el-table-column>
+        </el-table>
+
+        <div class="blog-list">
+            <div v-for="(item, index) in blogList" :key="index">
+                <router-link to="blog">{{item.title}}</router-link>
+                <!--            <a href="http://www.baidu.com">{{item.title}}</a>-->
+            </div>
         </div>
     </div>
 </template>
@@ -32,18 +46,4 @@
 </script>
 
 <style scoped>
-    h3 {
-        margin: 40px 0 0;
-    }
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-    a {
-        color: #42b983;
-    }
 </style>

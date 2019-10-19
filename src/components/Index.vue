@@ -27,6 +27,9 @@
                 fit: "fill"
             };
         },
+        mounted() {
+
+        },
         methods: {
         }
     }
