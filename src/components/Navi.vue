@@ -12,16 +12,25 @@
         >
             <template v-for="item in navi" :index="'/navi/' +item.naviname">
                 <template v-if="item.child_navi">
-                    <el-submenu :index="(item.type===5)?'/blog/'+item.id:'/navi/' +item.naviname" :key="item.naviname">
+                    <el-submenu
+                            :index="(item.type===5) ? ('/blog/'+item.id) : (item.type===1) ? ('/') : ('/navi/'+item.naviname)"
+                            :key="item.naviname"
+                    >
                         <template slot="title">{{ item.naviname }}</template>
-                        <el-menu-item v-for="subItem in item.child_navi" :key="subItem.naviname" :index="(subItem.type===5)?'/blog/'+subItem.id:'/navi/' +subItem.naviname">
+                        <el-menu-item v-for="subItem in item.child_navi"
+                                      :index="(subItem.type===5) ? ('/blog/'+subItem.id) : (subItem.type===1) ? ('/') : ('/navi/'+subItem.naviname)"
+                                      :key="subItem.naviname"
+                        >
                             {{ subItem.naviname }}
                         </el-menu-item>
                     </el-submenu>
                 </template>
 
                 <template v-else>
-                    <el-menu-item :index="(item.type===5)?'/blog/'+item.id:'/navi/' +item.naviname" :key="item.naviname">
+                    <el-menu-item
+                            :index="(item.type===5) ? ('/blog/'+item.id) : (item.type===1) ? ('/') : ('/navi/'+item.naviname)"
+                            :key="item.naviname"
+                    >
                         {{ item.naviname }}
                     </el-menu-item>
                 </template>
