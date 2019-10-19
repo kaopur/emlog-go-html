@@ -22,8 +22,8 @@
                         <template v-for="subItem in item.child_navi">
                             <!--如果是首页-->
                             <template v-if="subItem.type===0">
-                                <el-menu-item :key="subItem.naviname" :index="subItem.naviname">
-                                    <a :href="subItem.url" target="_blank" role="menuitem" style="text-decoration: none; color: rgb(255, 255, 255)">{{ subItem.naviname }}</a>
+                                <el-menu-item :key="subItem.naviname">
+                                    <a :href="subItem.url" target="_blank" role="menuitem" style="text-decoration: none">{{ subItem.naviname }}</a>
                                 </el-menu-item>
                             </template>
                             <template v-else>
@@ -40,7 +40,7 @@
                 <!--没有子导航-->
                 <template v-else>
                     <template v-if="item.type===0">
-                        <el-menu-item :key="item.naviname" :index="item.naviname">
+                        <el-menu-item :key="item.naviname">
                             <a :href="item.url" target="_blank" role="menuitem" style="text-decoration: none">{{ item.naviname }}</a>
                         </el-menu-item>
                     </template>

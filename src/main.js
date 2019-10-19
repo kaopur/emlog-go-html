@@ -3,7 +3,7 @@ import Vue from 'vue'
 // import './assets/public/css/bootstrap.min.css'
 // import './assets/public/css/ionicons.min.css'
 // import './assets/public/css/custom.css'
-import common from "./assets/public/js/common";
+// import common from "./assets/public/js/common";
 import axios from 'axios'
 import qs from 'qs'
 import VueRouter from "vue-router"
@@ -21,7 +21,7 @@ Vue.prototype.$http = axios;
 
 
 Vue.config.productionTip = false
-Vue.prototype.common = common
+// Vue.prototype.common = common
 
 
 let router = new VueRouter({
