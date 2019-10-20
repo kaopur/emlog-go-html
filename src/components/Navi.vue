@@ -13,10 +13,7 @@
             <template v-for="item in navi" :index="'/navi/' +item.naviname">
                 <!--有子导航-->
                 <template v-if="item.child_navi">
-                    <el-submenu
-                            :index="(item.type===5) ? ('/blog/'+item.id) : (item.type===1) ? ('/') : ('/navi/'+item.naviname)"
-                            :key="item.naviname"
-                    >
+                    <el-submenu :index="getNaviRoute($el, item)" :key="item.naviname">
                         <template slot="title">{{ item.naviname }}</template>
 
                         <template v-for="subItem in item.child_navi">
@@ -27,10 +24,7 @@
                                 </el-menu-item>
                             </template>
                             <template v-else>
-                                <el-menu-item
-                                        :index="(subItem.type===5) ? ('/blog/'+subItem.id) : (subItem.type===1) ? ('/') : ('/navi/'+subItem.naviname)"
-                                        :key="subItem.naviname"
-                                >
+                                <el-menu-item :index="getNaviRoute($el, subItem)" :key="subItem.naviname">
                                     {{ subItem.naviname }}
                                 </el-menu-item>
                             </template>
@@ -45,10 +39,7 @@
                         </el-menu-item>
                     </template>
                     <template v-else>
-                        <el-menu-item
-                                :index="(item.type===5) ? ('/blog/'+item.id) : (item.type===1) ? ('/') : ('/navi/'+item.naviname)"
-                                :key="item.naviname"
-                        >
+                        <el-menu-item :index="getNaviRoute($el, item)" :key="item.naviname">
                             {{ item.naviname }}
                         </el-menu-item>
                     </template>
@@ -83,6 +74,18 @@
             handleSelect(key, keyPath) {
                 // eslint-disable-next-line no-console
                 console.log(key, keyPath);
+            },
+            getNaviRoute($el, item) {
+                switch (item.type) {
+                    case 5:
+                        return '/blog/'+item.id
+                    case 1:
+                        return '/'
+                    case 4:
+                        return '/sortid/'+item.type_id
+                    default:
+                        return '/navi/'+item.naviname
+                }
             }
         },
         mounted() {
