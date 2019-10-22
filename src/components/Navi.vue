@@ -90,7 +90,7 @@
         },
         mounted() {
             this.getNavi()
-        }
+        },
 
     }
 </script>

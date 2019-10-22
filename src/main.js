@@ -29,7 +29,7 @@ let router = new VueRouter({
       //首页
       {path: "/", component: BlogList},
       //查看一篇文章的内容
-      {path: "/blog/*",component: Blog},
+      {path: "/blog/(\\d+)",component: Blog},
       //点击导航,查看对应文章列表
       {path: "/sortid/*",component: BlogList}
       ]

@@ -1,18 +1,18 @@
 <template>
     <div>
         <el-row>
-<!--            <el-col :span="1">-->
-<!--                <el-image-->
-<!--                        style="width: 100px; height: 100px"-->
-<!--                        :src="url"-->
-<!--                        :fit="fit"></el-image>-->
-<!--            </el-col>-->
-            <el-col :span="24"><Navi></Navi></el-col>
+            <el-col :span="1">
+                <el-image
+                        :src="url"
+                        :fit="fit"></el-image>
+            </el-col>
+            <el-col :span="23"><Navi></Navi></el-col>
         </el-row>
         <el-row>
-            <el-col :span="23" :offset="1">
+            <el-col :span="21" :offset="1">
                 <router-view name="default"></router-view>
             </el-col>
+            <el-col :span="2"></el-col>
         </el-row>
 
     </div>
