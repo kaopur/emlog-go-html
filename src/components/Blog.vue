@@ -1,7 +1,7 @@
 <template>
     <div class="blog">
-        <h1>This is blog component</h1>
-        <div></div>
+        <h1>{{ blog.title }}</h1>
+        <div v-html="blog.content"></div>
     </div>
 </template>
 
@@ -10,14 +10,24 @@
         name: "Blog",
         data: function () {
             return {
-                title:"",
-                content:""
+                api: "http://localhost:8080/api/blog/row",
+                gid: null,
+                blog: {},
             }
         },
         mounted: function () {
-
+            this.getBlog()
         },
-        methods: {}
+        methods: {
+            getBlog() {
+                this.gid = this.$route.params.pathMatch
+                this.$http.get(this.api + '/' + this.gid).then((data) => {
+                    if (data.data.error == 0) {
+                        this.blog = data.data.data
+                    }
+                })
+            }
+        }
     }
 </script>
 

@@ -78,7 +78,7 @@
             getNaviRoute($el, item) {
                 switch (item.type) {
                     case 5:
-                        return '/blog/'+item.id
+                        return '/blog/'+item.type_id
                     case 1:
                         return '/'
                     case 4:

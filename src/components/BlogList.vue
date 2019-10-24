@@ -1,7 +1,7 @@
 <template>
     <div class="blog-list">
         <div v-for="item in blogList" :key="item.title">
-            <h2>{{ item.title }}</h2>
+            <h2><router-link :to="{path:'/blog/' + item.gid}" class="title-list">{{ item.title }}</router-link></h2>
             <p>{{ item.date_fmt }} {{ item.Sort.sortname }} {{ item.User.nickname }}</p>
             <div v-html="item.excerpt || item.content"></div>
         </div>
@@ -9,7 +9,6 @@
 </template>
 
 <script>
-
     export default {
         name: "BlogList",
         data: function () {
@@ -55,4 +54,8 @@
 </script>
 
 <style scoped>
+    .title-list {
+        text-decoration: none;
+        color: black;
+    }
 </style>
