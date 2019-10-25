@@ -1,9 +1,25 @@
 <template>
     <div class="blog-list">
-        <div v-for="item in blogList" :key="item.title">
-            <h2><router-link :to="{path:'/blog/' + item.gid}" class="title-list">{{ item.title }}</router-link></h2>
-            <p>{{ item.date_fmt }} {{ item.Sort.sortname }} {{ item.User.nickname }}</p>
+        <div v-for="item in blogList" :key="item.title" class="blog">
+            <h2>
+                <router-link :to="{path:'/blog/' + item.gid}" class="title-list">{{ item.title }}</router-link>
+            </h2>
+            <p style="color: #909399;font-size: 10px">{{ item.date_fmt }} {{ item.Sort.sortname }} {{ item.User.nickname }}</p>
             <div v-html="item.excerpt || item.content"></div>
+            <p>
+                <router-link :to="{path:'/blog/' + item.gid}">
+                    <el-link type="info" class="el-icon-notebook-1">&nbsp;阅读全文>></el-link>
+                </router-link>
+            </p>
+            <p style="text-align: right">
+                <router-link :to="{path:'/blog/' + item.gid}">
+                    <el-link type="info">评论({{ item.comnun }})</el-link>
+                </router-link>
+                &nbsp;
+                <router-link :to="{path:'/blog/' + item.gid}">
+                    <el-link type="info">浏览({{ item.views }})</el-link>
+                </router-link>
+            </p>
         </div>
     </div>
 </template>
@@ -37,12 +53,12 @@
                         // eslint-disable-next-line no-console
                         console.log('不知道点的什么')
                     }
-                this.getList()
+                    this.getList()
                 }
             },
         },
         methods: {
-            getList(){
+            getList() {
                 this.$http.get(this.api, {"params": this.queryObj}).then((data) => {
                     if (data.data.error == 0) {
                         this.blogList = data.data.data
@@ -57,5 +73,13 @@
     .title-list {
         text-decoration: none;
         color: black;
+    }
+
+    .blog {
+        border-radius: 2px;
+        border: 1px solid #E4E7ED;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+        padding: 10px;
+        margin-bottom: 10px;
     }
 </style>

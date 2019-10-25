@@ -9,10 +9,12 @@
             <el-col :span="23"><Navi></Navi></el-col>
         </el-row>
         <el-row>
-            <el-col :span="21" :offset="1">
+            <el-col :span="18" :offset="1">
                 <router-view name="default"></router-view>
             </el-col>
-            <el-col :span="2"></el-col>
+            <el-col :span="5">
+                <Sidebar></Sidebar>
+            </el-col>
         </el-row>
 
     </div>
@@ -20,11 +22,13 @@
 
 <script>
     import Navi from "./Navi";
+    import Sidebar from "./Sidebar";
 
     export default {
         name: "Index",
         components: {
-            Navi
+            Navi,
+            Sidebar
         },
         data() {
             return {
