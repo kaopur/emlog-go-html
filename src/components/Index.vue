@@ -33,6 +33,8 @@
         data() {
             return {
                 url: "http://img3.duitang.com/uploads/item/201507/23/20150723115018_ma428.thumb.700_0.jpeg",
+                // url: "./assets/public/img/me.jpg",
+                // url: "./assets/logo.png",
                 fit: "fill"
             };
         },

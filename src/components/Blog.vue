@@ -40,7 +40,7 @@
             },
             getComments() {
                 this.gid = this.$route.params.pathMatch
-                this.$http.get(this.apiComments + '/' + "2").then((data) => {
+                this.$http.get(this.apiComments + '/' + this.gid).then((data) => {
                     if (data.data.error == 0) {
                         this.comments = data.data.data
                     }

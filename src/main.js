@@ -1,9 +1,4 @@
 import Vue from 'vue'
-// import App from './App.vue'
-// import './assets/public/css/bootstrap.min.css'
-// import './assets/public/css/ionicons.min.css'
-// import './assets/public/css/custom.css'
-// import common from "./assets/public/js/common";
 import axios from 'axios'
 import qs from 'qs'
 import VueRouter from "vue-router"
