@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- 导航 -->
         <el-row>
             <el-col :span="1">
                 <el-image
@@ -16,19 +17,25 @@
                 <Sidebar></Sidebar>
             </el-col>
         </el-row>
-
+        <el-row>
+            <el-col :span="24">
+                <Footer></Footer>
+            </el-col>
+        </el-row>
     </div>
 </template>
 
 <script>
-    import Navi from "./Navi";
-    import Sidebar from "./Sidebar";
+    import Navi from "../components/Navi";
+    import Sidebar from "../components/Sidebar";
+    import Footer from "../components/Footer";
 
     export default {
         name: "Index",
         components: {
             Navi,
-            Sidebar
+            Sidebar,
+            Footer,
         },
         data() {
             return {

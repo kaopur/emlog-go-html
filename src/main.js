@@ -3,7 +3,7 @@ import axios from 'axios'
 import qs from 'qs'
 import VueRouter from "vue-router"
 import Blog from "./components/Blog";
-import Index from './components/Index'
+import Index from './pages/Index'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import BlogList from "./components/BlogList";
